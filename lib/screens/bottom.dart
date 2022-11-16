@@ -1,6 +1,8 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 
+import 'home_screen.dart';
+
 class BottomBar extends StatefulWidget {
   const BottomBar({Key? key}) : super(key: key);
 
@@ -15,7 +17,7 @@ class _BottomBarState extends State<BottomBar> {
   // List[_selectedIndex] 와 같이 사용
 
   static final List<Widget> _widgetOptions = <Widget>[
-    const Text("Home"),
+    const HomeScreen(),
     const Text("Search"),
     const Text("Ticket"),
     const Text("Profile"),
@@ -49,7 +51,7 @@ class _BottomBarState extends State<BottomBar> {
           showSelectedLabels: false,
           showUnselectedLabels: false,
           elevation: 10,
-          backgroundColor: Colors.black,
+          backgroundColor: Color(0xFFeeedf2),
           unselectedItemColor: Color(0xFF526480),
           selectedItemColor: Colors.blueGrey,
           items: [
