@@ -23,8 +23,10 @@ class _BottomBarState extends State<BottomBar> {
   // 총 4개의 버튼을 생성했기 때문에, 변수 타입은 List<Widget>
 
   void _onItemTapped(int index){
-    _selectedIndex = index;
-    print('${_selectedIndex}');
+    setState(() {
+      _selectedIndex = index;
+      print("Tapped Index : " + _selectedIndex.toString());
+    });
   }
   // 플러터의 bottomNavBar 에서 버튼을 선택하면 자동으로 index를 제공한다.
   // 그 index값을 _selectedIndex 값으로 불러와서 사용이 가능해진다.
@@ -38,6 +40,7 @@ class _BottomBarState extends State<BottomBar> {
       ),
       body: Center(child: _widgetOptions[_selectedIndex]),
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
         onTap: _onItemTapped,
           showSelectedLabels: false,
           showUnselectedLabels: false,
