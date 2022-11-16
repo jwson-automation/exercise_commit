@@ -10,15 +10,25 @@ class BottomBar extends StatefulWidget {
 
 class _BottomBarState extends State<BottomBar> {
   int _selectedIndex = 0;
+  // 변수 인덱스 값을 선언, List 위젯을 호출 하는 용도로 사용한다.
+  // List[_selectedIndex] 와 같이 사용
+
   static final List<Widget> _widgetOptions = <Widget>[
     const Text("Home"),
     const Text("Search"),
     const Text("Ticket"),
     const Text("Profile"),
   ];
-
   // 바텀 네비게이션 바의 상태(state)를 바꾸기 위해서 변수를 선언해준다.
   // 총 4개의 버튼을 생성했기 때문에, 변수 타입은 List<Widget>
+
+  void _onItemTapped(int index){
+    _selectedIndex = index;
+    print('${_selectedIndex}');
+  }
+  // 플러터의 bottomNavBar 에서 버튼을 선택하면 자동으로 index를 제공한다.
+  // 그 index값을 _selectedIndex 값으로 불러와서 사용이 가능해진다.
+
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +38,7 @@ class _BottomBarState extends State<BottomBar> {
       ),
       body: Center(child: _widgetOptions[_selectedIndex]),
       bottomNavigationBar: BottomNavigationBar(
+        onTap: _onItemTapped,
           showSelectedLabels: false,
           showUnselectedLabels: false,
           elevation: 10,
